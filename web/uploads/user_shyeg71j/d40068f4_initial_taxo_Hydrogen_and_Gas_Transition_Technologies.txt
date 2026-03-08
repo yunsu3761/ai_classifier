@@ -1,0 +1,26 @@
+Label: Cost_effective_low_carbon_steelmaking_technologies
+Dimension: Hydrogen_and_Gas_Transition_Technologies
+Description: Hydrogen and gas transition technologies refer to approaches that inject hydrogen or hydrogen-rich gases into the blast furnace to partially substitute conventional carbon-based reducing agents, thereby reducing carbon emissions. This category includes injection facility modifications, gas composition optimization, and safety monitoring systems, enabling stepwise decarbonization within the existing blast furnace framework.
+Level: 0
+Source: Initial
+----------------------------------------
+Children:
+     Label: Blast_Furnace_Hydrogen_Injection
+     Dimension: Hydrogen_and_Gas_Transition_Technologies
+     Description: This includes technologies that enable hydrogen injection into the blast furnace using existing natural gas injection facilities or modified lances. Gradual expansion of hydrogen concentration while maintaining furnace stability is critical.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+     Label: Hydrogen_Rich_Gas_Utilization
+     Dimension: Hydrogen_and_Gas_Transition_Technologies
+     Description: This includes technologies that determine the most efficient hydrogen-rich gases (such as LNG or COG) or optimize mixed gas injection to partially replace conventional carbon-based fuels. Optimization of reduction kinetics and thermal balance is essential.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+     Label: Safety_and_Monitoring
+     Dimension: Hydrogen_and_Gas_Transition_Technologies
+     Description: This includes safety management technologies such as hydrogen leak detection, flashback prevention, thermal imaging-based equipment diagnostics, and real-time integrated control systems during hydrogen injection.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+----------------------------------------

@@ -1,0 +1,49 @@
+Label: Energy_Efficiency_Improvement_Technologies
+Dimension: Energy_Efficiency_Improvement_Technologies
+Description: Technologies that reduce carbon emissions by improving thermal efficiency and minimizing energy losses in coke-making and sintering processes. This dimension focuses on heat recovery, combustion optimization, and energy utilization enhancement without fundamentally changing the carbon source or ironmaking route.
+Level: 0
+Source: initial
+# of Papers: 2
+Example Papers: [(8, 'Injecting hot gas into blast furnace used for manufacturing steel product e.g. steel bar, comprises e.g. introducing gas into device for heating gas, and feeding energy into insert using inductor of device for heating gas'), (9, 'Method for heating gas in steelmaking vessel used in steel industry, involves feeding energy into insert using inductor located in vicinity of pipe such that energy fed into insert is transferred to gas flowing into pipe')]
+----------------------------------------
+----------------------------------------
+
+Label: Fuel_and_Carbon_Source_Substitution_Technologies
+Dimension: Fuel_and_Carbon_Source_Substitution_Technologies
+Description: Technologies that reduce fossil carbon consumption by partially replacing conventional coal- and coke-based carbon sources with low-carbon or renewable alternatives in coke-making, sintering, and blast furnace processes. The conventional blast furnace ironmaking route is maintained.
+Level: 0
+Source: initial
+# of Papers: 1
+Example Papers: [(7, 'Recycled aluminum production device, has first boiler to generate dry distillation gas using waste tires, first calcination furnace connected to first boiler via flue, second boiler to generate dry distillation gas, second calcination furnace connected to second boiler via flue and exhaust flue')]
+----------------------------------------
+----------------------------------------
+
+Label: Raw_Material_Structure_Innovation_Technologies
+Dimension: Raw_Material_Structure_Innovation_Technologies
+Description: Technologies that optimize the composition, quality, and charging ratios of blast furnace burden materials to enhance reduction efficiency, permeability, and operational stability while lowering overall carbon intensity.
+Level: 0
+Source: initial
+# of Papers: 3
+Example Papers: [(1, 'Aluminum oxide porous cover used in molten steel hydrogen fixing probe, comprises aluminum oxide hollow ball, high aluminum oxide micropowder, silicon micropowder, and binder'), (5, 'Method for blast furnace smelting high titanium type vanadium-titanium magnetite by hydrogen-rich carbon circulating oxygen, comprises determining furnace charge structure, cloth system, air supply system, thermal system and slagging system, and smelting high-titanium vanadium-titanium magnetite'), (7, 'Recycled aluminum production device, has first boiler to generate dry distillation gas using waste tires, first calcination furnace connected to first boiler via flue, second boiler to generate dry distillation gas, second calcination furnace connected to second boiler via flue and exhaust flue')]
+----------------------------------------
+----------------------------------------
+
+Label: Hydrogen_and_Gas_Transition_Technologies
+Dimension: Hydrogen_and_Gas_Transition_Technologies
+Description: Technologies that introduce hydrogen or hydrogen-rich gases into the blast furnace to partially substitute carbon-based reducing agents and enable stepwise decarbonization within the conventional blast furnace framework.
+Level: 0
+Source: initial
+# of Papers: 3
+Example Papers: [(2, 'Blast furnace used for gas combustion, has hot blast passage that is defined by inner wall of tuyere portion, where reducing gas outlet and solid reducing material outlet are located towards hot blast passage'), (3, 'Method for operating blast furnace for producing pig iron, involves supplying reducing gas into interior of blast furnace through reducing gas outlet provided in hot air tuyere, and changing flow rate of reducing gas blown out from one of reducing gas outlets'), (5, 'Method for blast furnace smelting high titanium type vanadium-titanium magnetite by hydrogen-rich carbon circulating oxygen, comprises determining furnace charge structure, cloth system, air supply system, thermal system and slagging system, and smelting high-titanium vanadium-titanium magnetite')]
+----------------------------------------
+----------------------------------------
+
+Label: Blast_Furnace_Stabilization_and_High_Efficiency_Operation_Technologies
+Dimension: Blast_Furnace_Stabilization_and_High_Efficiency_Operation_Technologies
+Description: Technologies that improve blast furnace operational stability and efficiency under low coke rate or low-carbon operating conditions, including both structural advancements and operational optimization approaches.
+Level: 0
+Source: initial
+# of Papers: 5
+Example Papers: [(0, 'Method for guiding coke rate of blast furnace, involves generating label history data by assigning label indicating that operator decreased and increased coke rates within time range, and setting time parameter to be greater than time parameter'), (2, 'Blast furnace used for gas combustion, has hot blast passage that is defined by inner wall of tuyere portion, where reducing gas outlet and solid reducing material outlet are located towards hot blast passage'), (3, 'Method for operating blast furnace for producing pig iron, involves supplying reducing gas into interior of blast furnace through reducing gas outlet provided in hot air tuyere, and changing flow rate of reducing gas blown out from one of reducing gas outlets')]
+----------------------------------------
+----------------------------------------

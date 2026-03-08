@@ -1,0 +1,26 @@
+Label: Cost_effective_low_carbon_steelmaking_technologies
+Dimension: Fuel_and_Carbon_Source_Substitution_Technologies
+Description: Fuel and Carbon Source Substitution Technologies refer to technologies that partially replace conventional coal- and coke-based carbon sources with low-carbon or renewable carbon sources in coke-making, sintering, and blast furnace processes in order to reduce fossil carbon consumption. These technologies aim to reduce direct carbon emissions while maintaining the conventional blast furnace ironmaking system.
+Level: 0
+Source: Initial
+----------------------------------------
+Children:
+     Label: Coke_Process
+     Dimension: Fuel_and_Carbon_Source_Substitution_Technologies
+     Description: This includes technologies that reduce fossil carbon usage in coke production by introducing alternative carbon sources. Examples include the blending of waste plastics and waste rubber, the application of biochar or biocoke, and partial substitution with biomass-derived gases. These technologies reduce indirect carbon emissions while preserving the conventional blast furnace route.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+     Label: Sintering_Process
+     Dimension: Fuel_and_Carbon_Source_Substitution_Technologies
+     Description: This includes technologies that replace conventional high-carbon solid fuels in the sintering process with lower-carbon heat sources. Examples include partial substitution of anthracite with biochar and hybrid heat-source sintering technologies such as hydrogen or LNG injection into the upper sinter bed.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+     Label: Blast_Furnace_Process
+     Dimension: Fuel_and_Carbon_Source_Substitution_Technologies
+     Description: This includes technologies that utilize biomass-based carbon sources or auxiliary fuels in the blast furnace process to reduce coke rate and partially substitute fossil carbon inputs.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+----------------------------------------

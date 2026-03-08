@@ -1,11 +1,9 @@
 """
-Result persistence and retrieval service.
+Result persistence — user-scoped.
 """
 import json
-import os
 from pathlib import Path
-from typing import Dict, List, Optional
-from datetime import datetime
+from typing import List, Optional
 
 import pandas as pd
 
@@ -13,19 +11,19 @@ from ..core.config import DATASETS_DIR, SAVE_OUTPUT_DIR
 from ..models.schemas import RunSummary, RunDetail, RunStatus
 
 
-def list_runs(dataset_folder: Optional[str] = None) -> List[RunSummary]:
-    """List all classification runs, optionally filtered by dataset folder."""
+def list_runs(dataset_folder: Optional[str] = None, user_id: str = "default") -> List[RunSummary]:
     runs = []
+    base = DATASETS_DIR / user_id
+    if not base.exists():
+        return runs
 
     search_dirs = []
     if dataset_folder:
-        search_dirs.append(DATASETS_DIR / dataset_folder.lower().replace(" ", "_"))
+        search_dirs.append(base / dataset_folder.lower().replace(" ", "_"))
     else:
-        # Search all dataset folders
-        if DATASETS_DIR.exists():
-            for d in DATASETS_DIR.iterdir():
-                if d.is_dir():
-                    search_dirs.append(d)
+        for d in base.iterdir():
+            if d.is_dir():
+                search_dirs.append(d)
 
     for dir_path in search_dirs:
         if not dir_path.exists():
@@ -52,10 +50,12 @@ def list_runs(dataset_folder: Optional[str] = None) -> List[RunSummary]:
     return runs
 
 
-def get_run_detail(run_id: str) -> Optional[RunDetail]:
-    """Get detailed results for a specific run."""
-    # Search for run metadata
-    for dir_path in DATASETS_DIR.iterdir():
+def get_run_detail(run_id: str, user_id: str = "default") -> Optional[RunDetail]:
+    base = DATASETS_DIR / user_id
+    if not base.exists():
+        return None
+
+    for dir_path in base.iterdir():
         if not dir_path.is_dir():
             continue
         meta_file = dir_path / f"run_{run_id}.json"
@@ -75,7 +75,6 @@ def get_run_detail(run_id: str) -> Optional[RunDetail]:
                 parameters=meta.get("parameters", {}),
             )
 
-            # Load taxonomy trees
             taxonomy_tree = {}
             dims = meta.get("parameters", {}).get("dimensions", [])
             for dim in dims:
@@ -84,28 +83,19 @@ def get_run_detail(run_id: str) -> Optional[RunDetail]:
                     with open(taxo_file, "r", encoding="utf-8") as f:
                         taxonomy_tree[dim] = json.load(f)
 
-            return RunDetail(
-                summary=summary,
-                taxonomy_tree=taxonomy_tree,
-            )
-
+            return RunDetail(summary=summary, taxonomy_tree=taxonomy_tree)
     return None
 
 
-def get_taxonomy_json(run_id: str, dimension: Optional[str] = None) -> Optional[dict]:
-    """Get taxonomy tree JSON for a specific run."""
-    detail = get_run_detail(run_id)
+def get_taxonomy_json(run_id: str, dimension: Optional[str] = None, user_id: str = "default"):
+    detail = get_run_detail(run_id, user_id)
     if not detail or not detail.taxonomy_tree:
         return None
-
-    if dimension:
-        return detail.taxonomy_tree.get(dimension)
-    return detail.taxonomy_tree
+    return detail.taxonomy_tree.get(dimension) if dimension else detail.taxonomy_tree
 
 
-def export_results_to_excel(run_id: str) -> Optional[Path]:
-    """Export classification results to Excel file."""
-    detail = get_run_detail(run_id)
+def export_results_to_excel(run_id: str, user_id: str = "default") -> Optional[Path]:
+    detail = get_run_detail(run_id, user_id)
     if not detail:
         return None
 
@@ -118,51 +108,107 @@ def export_results_to_excel(run_id: str) -> Optional[Path]:
         return None
 
     df = pd.DataFrame(rows)
-    output_dir = SAVE_OUTPUT_DIR / run_id
+    output_dir = SAVE_OUTPUT_DIR / user_id / run_id
     output_dir.mkdir(parents=True, exist_ok=True)
     output_path = output_dir / f"results_{run_id}.xlsx"
     df.to_excel(output_path, index=False)
     return output_path
 
 
+def _write_node_to_txt(node: dict, dimension: str, lines: list, indent_level: int = 0):
+    indent = " " * (indent_level * 5)
+    
+    label = node.get("label", node.get("name", ""))
+    lines.append(f"{indent}Label: {label}")
+    lines.append(f"{indent}Dimension: {dimension}")
+    
+    desc = node.get("description", "")
+    lines.append(f"{indent}Description: {desc}")
+    
+    level = node.get("level", 0)
+    lines.append(f"{indent}Level: {level}")
+    
+    source = node.get("source", "Initial")
+    lines.append(f"{indent}Source: {source}")
+    
+    paper_ids = node.get("paper_ids", node.get("papers", []))
+    lines.append(f"{indent}# of Papers: {len(paper_ids)}")
+    
+    example_papers = node.get("example_papers", [])
+    if example_papers:
+        # truncate to 3 examples to mimic taxonomy.py display()
+        ep_subset = example_papers[:3]
+        try:
+            formatted_ep = "[" + ", ".join([f"({ep[0]}, '{ep[1]}')" for ep in ep_subset]) + "]"
+        except Exception:
+            formatted_ep = str(ep_subset)
+        lines.append(f"{indent}Example Papers: {formatted_ep}")
+    
+    children = node.get("children", [])
+    if children:
+        lines.append(f"{indent}" + "-" * 40)
+        lines.append(f"{indent}Children:")
+        child_list = children if isinstance(children, list) else list(children.values())
+        for child in child_list:
+            if isinstance(child, dict):
+                _write_node_to_txt(child, dimension, lines, indent_level + 1)
+                
+    lines.append(f"{indent}" + "-" * 40)
+
+
+def export_results_to_txt(run_id: str, user_id: str = "default") -> Optional[Path]:
+    detail = get_run_detail(run_id, user_id)
+    if not detail or not detail.taxonomy_tree:
+        return None
+
+    lines = []
+    for dim, tree in detail.taxonomy_tree.items():
+        _write_node_to_txt(tree, dim, lines, 0)
+        lines.append("-" * 40)
+        lines.append("")
+
+    output_dir = SAVE_OUTPUT_DIR / user_id / run_id
+    output_dir.mkdir(parents=True, exist_ok=True)
+    output_path = output_dir / f"results_{run_id}.txt"
+    
+    with open(output_path, "w", encoding="utf-8") as f:
+        f.write("\n".join(lines))
+        
+    return output_path
+
+
+def get_results_table_data(run_id: str, user_id: str = "default") -> Optional[List[dict]]:
+    detail = get_run_detail(run_id, user_id)
+    if not detail:
+        return None
+
+    rows = []
+    if detail.taxonomy_tree:
+        for dim, tree in detail.taxonomy_tree.items():
+            _flatten_tree(tree, dim, rows)
+            
+    return rows
+
+
 def _flatten_tree(node: dict, dimension: str, rows: list, path: str = ""):
-    """Recursively flatten a taxonomy tree into rows."""
     label = node.get("label", "")
     current_path = f"{path} > {label}" if path else label
-
-    # Add papers
     paper_ids = node.get("paper_ids", [])
-    example_papers = node.get("example_papers", [])
 
     if paper_ids:
         for pid in paper_ids:
-            rows.append({
-                "dimension": dimension,
-                "taxonomy_path": current_path,
-                "node_label": label,
-                "level": node.get("level", 0),
-                "description": node.get("description", ""),
-                "source": node.get("source", ""),
-                "paper_id": pid,
-            })
+            rows.append({"dimension": dimension, "taxonomy_path": current_path, "node_label": label,
+                         "level": node.get("level", 0), "description": node.get("description", ""),
+                         "paper_id": pid})
     elif not node.get("children"):
-        # Leaf node with no papers
-        rows.append({
-            "dimension": dimension,
-            "taxonomy_path": current_path,
-            "node_label": label,
-            "level": node.get("level", 0),
-            "description": node.get("description", ""),
-            "source": node.get("source", ""),
-            "paper_id": "",
-        })
+        rows.append({"dimension": dimension, "taxonomy_path": current_path, "node_label": label,
+                     "level": node.get("level", 0), "description": node.get("description", ""), "paper_id": ""})
 
-    # Process children
     children = node.get("children", [])
     if isinstance(children, list):
         for child in children:
             if isinstance(child, dict):
                 _flatten_tree(child, dimension, rows, current_path)
     elif isinstance(children, dict):
-        for child_label, child_data in children.items():
+        for child_data in children.values():
             _flatten_tree(child_data, dimension, rows, current_path)

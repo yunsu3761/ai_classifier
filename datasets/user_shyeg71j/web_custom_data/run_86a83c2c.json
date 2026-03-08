@@ -1,0 +1,23 @@
+{
+  "run_id": "86a83c2c",
+  "user_id": "user_shyeg71j",
+  "timestamp": "2026-03-08T18:05:31.096580",
+  "parameters": {
+    "model": "gpt-4o-mini",
+    "topic": "technology",
+    "max_depth": 3,
+    "max_density": 5,
+    "test_samples": 50,
+    "dimensions": [
+      "Energy_Efficiency_Improvement_Technologies",
+      "Fuel_and_Carbon_Source_Substitution_Technologies",
+      "Raw_Material_Structure_Innovation_Technologies",
+      "Hydrogen_and_Gas_Transition_Technologies",
+      "Blast_Furnace_Stabilization_and_High_Efficiency_Operation_Technologies"
+    ],
+    "dataset_folder": "web_custom_data"
+  },
+  "total_documents": 50,
+  "total_nodes": 5,
+  "elapsed_seconds": 793.1147289276123
+}

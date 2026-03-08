@@ -1,0 +1,4 @@
+Label: Blast_Furnace_Stabilization_and_High_Efficiency_Operation_Technologies
+Dimension: Blast_Furnace_Stabilization_and_High_Efficiency_Operation_Technologies
+Description: Technologies that improve blast furnace operational stability and efficiency under low coke rate or low-carbon operating conditions, including both structural advancements and operational optimization approaches.
+---

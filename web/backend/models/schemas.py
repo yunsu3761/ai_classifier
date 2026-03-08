@@ -152,12 +152,15 @@ class ClassifyRequest(BaseModel):
 
 class ClassifyProgress(BaseModel):
     run_id: str
+    user_id: str = "default"
     status: RunStatus
     progress_pct: float = 0.0
     current_step: str = ""
     current_dimension: str = ""
     logs: List[str] = []
     error: Optional[str] = None
+    estimated_seconds: float = 0.0
+    elapsed_seconds: float = 0.0
 
 
 class ClassificationResult(BaseModel):

@@ -1,0 +1,4 @@
+Label: Fuel_and_Carbon_Source_Substitution_Technologies
+Dimension: Fuel_and_Carbon_Source_Substitution_Technologies
+Description: Technologies that reduce fossil carbon consumption by partially replacing conventional coal- and coke-based carbon sources with low-carbon or renewable alternatives in coke-making, sintering, and blast furnace processes. The conventional blast furnace ironmaking route is maintained.
+---

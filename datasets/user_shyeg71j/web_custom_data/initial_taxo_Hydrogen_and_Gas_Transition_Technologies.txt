@@ -1,0 +1,4 @@
+Label: Hydrogen_and_Gas_Transition_Technologies
+Dimension: Hydrogen_and_Gas_Transition_Technologies
+Description: Technologies that introduce hydrogen or hydrogen-rich gases into the blast furnace to partially substitute carbon-based reducing agents and enable stepwise decarbonization within the conventional blast furnace framework.
+---

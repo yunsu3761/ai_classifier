@@ -121,6 +121,8 @@ class TaxonomyService:
             lines.append("---")
 
             # Add Level1 as first child
+            lines.append("Children:")
+            
             dim_desc = ""
             desc_col = "Level1_Description" if "Level1_Description" in df.columns else None
             if desc_col:
@@ -135,6 +137,8 @@ class TaxonomyService:
             # Add Level2+ children
             if "Level2" in level_cols:
                 l2_values = dim_df["Level2"].dropna().unique()
+                if len(l2_values) > 0:
+                    lines.append("  Children:")
                 for l2 in l2_values:
                     l2_name = str(l2).strip().replace(" ", "_").lower()
                     l2_desc = ""
@@ -152,6 +156,8 @@ class TaxonomyService:
                     if "Level3" in level_cols:
                         l2_rows = dim_df[dim_df["Level2"] == l2]
                         l3_values = l2_rows["Level3"].dropna().unique()
+                        if len(l3_values) > 0:
+                            lines.append("    Children:")
                         for l3 in l3_values:
                             l3_name = str(l3).strip().replace(" ", "_").lower()
                             l3_desc = ""

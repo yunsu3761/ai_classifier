@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { api } from '../api/client.js'
 
 const navItems = [
   { path: '/',           icon: '📂', label: '데이터 소스',    desc: 'Data Sources' },
@@ -10,6 +11,16 @@ const navItems = [
 
 export default function Layout({ children }) {
   const location = useLocation()
+  const [userId, setUserId] = useState(api.getUserId())
+  const [editing, setEditing] = useState(false)
+  const [nameInput, setNameInput] = useState(userId)
+
+  function handleSave() {
+    const newId = nameInput.trim() || userId
+    api.setUserId(newId)
+    setUserId(newId)
+    setEditing(false)
+  }
 
   return (
     <div className="app-layout">
@@ -33,7 +44,22 @@ export default function Layout({ children }) {
         </nav>
 
         <div className="sidebar-footer">
-          <p>v1.0.0 — Patent Classifier</p>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+            <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>사용자:</span>
+            {editing ? (
+              <div style={{ display: 'flex', gap: 4 }}>
+                <input className="form-input" style={{ height: 24, fontSize: '0.72rem', padding: '0 6px', width: 100 }}
+                  value={nameInput} onChange={e => setNameInput(e.target.value)} onKeyDown={e => e.key === 'Enter' && handleSave()} autoFocus />
+                <button className="btn btn-primary btn-sm" style={{ padding: '0 6px', height: 24, fontSize: '0.7rem' }} onClick={handleSave}>OK</button>
+              </div>
+            ) : (
+              <span onClick={() => setEditing(true)} style={{ cursor: 'pointer', fontWeight: 600, fontSize: '0.78rem', color: 'var(--accent-light)' }}
+                title="Click to change user ID">
+                {userId}
+              </span>
+            )}
+          </div>
+          <p style={{ marginTop: 6 }}>v2.0 — Patent Classifier</p>
         </div>
       </aside>
 

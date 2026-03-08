@@ -161,53 +161,125 @@ def truncate_messages_to_token_limit(messages, max_context_tokens=128000, reserv
 	return truncated_messages
 
 def promptGPT(args, prompts, schema=None, max_new_tokens=16384, json_mode=True, temperature=0.1, top_p=0.99):
-	outputs = []
 	# Allow overriding the model via environment variable for flexibility
 	model = os.getenv('OPENAI_MODEL', 'gpt-5-2025-08-07')
 	print(f"[DEBUG] Using LLM model: {model}")
 	
-	# gpt-5-nano only supports temperature=1
-	if 'gpt-5-2025-08-07' in model.lower():
+	# Allow overriding temperature/top_p via env (set by web UI)
+	env_temp = os.getenv('OPENAI_TEMPERATURE')
+	env_top_p = os.getenv('OPENAI_TOP_P')
+	if env_temp is not None:
+		temperature = float(env_temp)
+	if env_top_p is not None:
+		top_p = float(env_top_p)
+	
+	# gpt-5-nano and some o1/o3 models only support temperature=1
+	if 'gpt-5-2025-08-07' in model.lower() or 'o1' in model.lower() or 'o3' in model.lower():
 		temperature = 1
 		top_p = 1
 	
-	for messages in tqdm(prompts):
+	from concurrent.futures import ThreadPoolExecutor, as_completed
+	import threading
+	import time
+	
+	# Initialize API clients for round-robin usage
+	if not hasattr(args, 'api_clients') or not args.api_clients:
+		keys = load_all_api_keys()
+		args.api_clients = [create_openai_client(k) for k in keys]
+		if not args.api_clients:
+			if hasattr(args, 'client') and 'gpt' in args.client:
+				args.api_clients = [args.client['gpt']]
+			else:
+				raise ValueError("No valid OpenAI clients found. Please set OPENAI_API_KEY.")
+				
+	clients = args.api_clients
+	num_clients = len(clients)
+	print(f"[DEBUG] Using {num_clients} API key(s) for parallel processing.")
+	
+	lock = threading.Lock()
+	client_idx = 0
+	
+	def process_prompt(idx, messages):
+		nonlocal client_idx
+		
 		# Truncate messages if they exceed the model's context length
 		messages = truncate_messages_to_token_limit(messages, max_context_tokens=128000, reserved_output_tokens=max_new_tokens)
 		
+		# Rotate clients thread-safely
+		with lock:
+			client = clients[client_idx % num_clients]
+			client_idx += 1
+			
 		max_retries = 5
 		for attempt in range(max_retries):
 			try:
+				kwargs = dict(
+					model=model, stream=False, messages=messages,
+					temperature=temperature, top_p=top_p,
+					max_completion_tokens=max_new_tokens
+				)
+				
 				if json_mode:
-					response = args.client['gpt'].chat.completions.create(model=model, stream=False, messages=messages, 
-														response_format={"type": "json_object"}, temperature=temperature, top_p=top_p, 
-														max_completion_tokens=max_new_tokens)
+					# Try response_format with fallback chain:
+					response_format_options = [
+						{"type": "json_object"},
+						{"type": "json_schema", "json_schema": {"name": "response", "strict": False, "schema": {"type": "object"}}},
+						None,
+					]
+					
+					last_err = None
+					for rf_option in response_format_options:
+						try:
+							req = dict(kwargs)
+							if rf_option is not None:
+								req["response_format"] = rf_option
+							response = client.chat.completions.create(**req)
+							last_err = None
+							break  # Success
+						except openai.BadRequestError as rf_err:
+							err_msg = str(rf_err).lower()
+							if "response_format" in err_msg or "json" in err_msg:
+								last_err = rf_err
+								continue  # Try next format
+							else:
+								raise  # Non-format-related error
+					
+					if last_err is not None:
+						raise last_err
 				else:
-					response = args.client['gpt'].chat.completions.create(model=model, stream=False, messages=messages, 
-														temperature=temperature, top_p=top_p,
-														max_completion_tokens=max_new_tokens)
-				break  # Success
+					response = client.chat.completions.create(**kwargs)
+				
+				return idx, response.choices[0].message.content
+				
 			except (openai.InternalServerError, openai.APITimeoutError, openai.RateLimitError, openai.APIConnectionError) as e:
 				wait_time = min(2 ** attempt * 5, 120)  # 5s, 10s, 20s, 40s, 80s
 				print(f"[RETRY {attempt+1}/{max_retries}] {type(e).__name__}: {e}. Waiting {wait_time}s...")
-				import time
 				time.sleep(wait_time)
 				if attempt == max_retries - 1:
 					print(f"[ERROR] Max retries reached. Raising error.")
 					raise
 			except Exception as e:
-				# Non-retryable errors
 				try:
 					if isinstance(e, openai.BadRequestError):
 						print("[ERROR] OpenAI BadRequestError:", e)
-						print("[SUGGESTION] No models loaded. Ensure the model name in OPENAI_MODEL is correct.")
+						print("[SUGGESTION] Ensure the model name in OPENAI_MODEL is correct.")
 					else:
 						print("[ERROR] LLM request failed:", e)
 				except Exception:
-					print("[ERROR] LLM request failed:", e)
+					pass
 				raise
 
-		outputs.append(response.choices[0].message.content)
+	outputs = [None] * len(prompts)
+	
+	# Determine concurrency level - roughly 5 workers per API key, capped at 50
+	workers = min(len(prompts), max(5, num_clients * 5), 50)
+	
+	with ThreadPoolExecutor(max_workers=workers) as executor:
+		future_to_idx = {executor.submit(process_prompt, i, p): i for i, p in enumerate(prompts)}
+		for future in tqdm(as_completed(future_to_idx), total=len(prompts), desc="LLM Inference"):
+			idx, result = future.result()
+			outputs[idx] = result
+			
 	return outputs
 
 # Removed promptLlamaVLLM function - vLLM not supported in CPU-only mode

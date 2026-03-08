@@ -1,0 +1,4 @@
+Label: Energy_Efficiency_Improvement_Technologies
+Dimension: Energy_Efficiency_Improvement_Technologies
+Description: Technologies that reduce carbon emissions by improving thermal efficiency and minimizing energy losses in coke-making and sintering processes. This dimension focuses on heat recovery, combustion optimization, and energy utilization enhancement without fundamentally changing the carbon source or ironmaking route.
+---

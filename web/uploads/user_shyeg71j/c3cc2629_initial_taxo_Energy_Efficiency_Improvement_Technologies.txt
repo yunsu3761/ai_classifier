@@ -1,0 +1,26 @@
+Label: Cost_effective_low_carbon_steelmaking_technologies
+Dimension: Energy_Efficiency_Improvement_Technologies
+Description: Low-carbon ironmaking refers to a category of technologies that reduce carbon emissions across coke-making, sintering, and blast furnace processes through improvements in energy efficiency, fuel substitution, raw material structure innovation, hydrogen utilization, and next-generation process advancement. This classification includes technologies that lower carbon intensity while maintaining the conventional blast furnace ironmaking route, excluding full process transitions such as DRI-EAF.
+Level: 0
+Source: Initial
+----------------------------------------
+Children:
+     Label: Coke_Process
+     Dimension: Energy_Efficiency_Improvement_Technologies
+     Description: This includes technologies that improve thermal efficiency and minimize energy losses in the coke-making process. Representative examples include coke dry quenching (CDQ) for sensible heat recovery and power generation, advanced oven sealing systems, automated combustion control systems, and process waste heat recovery systems. These technologies contribute to coke rate reduction and indirect CO₂ emission mitigation.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+     Label: Sintering_Process
+     Dimension: Energy_Efficiency_Improvement_Technologies
+     Description: This includes technologies that enhance heat utilization efficiency in the sintering process. Examples include fuel reduction through flue gas recirculation (FGR), sinter cooler waste heat recovery, combustion zone control-based low-temperature sintering, and precise raw material moisture control to reduce drying energy consumption. These technologies directly reduce energy consumption and carbon emissions in sintering operations.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+     Label: Digital_Optimization
+     Dimension: Energy_Efficiency_Improvement_Technologies
+     Description: This includes real-time sensor and data-driven operational optimization technologies. Examples include AI-based combustion condition optimization, automatic control of coke oven heating conditions, and integrated optimization systems for coke and sinter processes. These technologies simultaneously enhance process stability and energy efficiency.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+----------------------------------------

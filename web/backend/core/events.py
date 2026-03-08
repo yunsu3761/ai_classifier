@@ -1,23 +1,39 @@
 """
 SSE (Server-Sent Events) utilities for real-time progress streaming.
+Includes concurrency limiter for classification runs.
 """
 import asyncio
 import json
-from typing import AsyncGenerator
+import threading
+from typing import AsyncGenerator, Optional
+
+from .config import MAX_CONCURRENT_RUNS
 
 
 class ProgressTracker:
     """Thread-safe progress tracker that can be read via SSE."""
 
-    def __init__(self, run_id: str):
+    def __init__(self, run_id: str, user_id: str = "default"):
         self.run_id = run_id
+        self.user_id = user_id
         self.status = "pending"
         self.progress_pct = 0.0
         self.current_step = ""
         self.current_dimension = ""
         self.logs: list[str] = []
-        self.error: str | None = None
+        self.error: Optional[str] = None
+        self.estimated_seconds: float = 0.0
+        self.elapsed_seconds: float = 0.0
         self._subscribers: list[asyncio.Queue] = []
+        self._cancel_event = threading.Event()
+
+    @property
+    def is_cancelled(self) -> bool:
+        return self._cancel_event.is_set()
+
+    def request_cancel(self):
+        self._cancel_event.set()
+        self.update(status="cancelled", current_step="Cancelled by user")
 
     def update(self, **kwargs):
         for k, v in kwargs.items():
@@ -51,17 +67,23 @@ class ProgressTracker:
     def to_dict(self) -> dict:
         return {
             "run_id": self.run_id,
+            "user_id": self.user_id,
             "status": self.status,
             "progress_pct": self.progress_pct,
             "current_step": self.current_step,
             "current_dimension": self.current_dimension,
-            "logs": self.logs[-50:],  # Last 50 lines
+            "logs": self.logs[-50:],
             "error": self.error,
+            "estimated_seconds": self.estimated_seconds,
+            "elapsed_seconds": self.elapsed_seconds,
         }
 
 
-# Global registry of active progress trackers
+# Global registry
 _trackers: dict[str, ProgressTracker] = {}
+_run_semaphore = threading.Semaphore(MAX_CONCURRENT_RUNS)
+_active_runs_lock = threading.Lock()
+_active_runs: dict[str, str] = {}  # run_id -> user_id
 
 
 def get_tracker(run_id: str) -> ProgressTracker:
@@ -70,8 +92,48 @@ def get_tracker(run_id: str) -> ProgressTracker:
     return _trackers[run_id]
 
 
+def create_tracker(run_id: str, user_id: str) -> ProgressTracker:
+    tracker = ProgressTracker(run_id, user_id)
+    _trackers[run_id] = tracker
+    return tracker
+
+
 def remove_tracker(run_id: str):
     _trackers.pop(run_id, None)
+
+
+def try_acquire_run_slot(run_id: str, user_id: str) -> bool:
+    """Try to acquire a slot. Returns False if at capacity."""
+    acquired = _run_semaphore.acquire(blocking=False)
+    if acquired:
+        with _active_runs_lock:
+            _active_runs[run_id] = user_id
+    return acquired
+
+
+def release_run_slot(run_id: str):
+    with _active_runs_lock:
+        if run_id in _active_runs:
+            del _active_runs[run_id]
+            _run_semaphore.release()
+
+
+def get_active_run_count() -> int:
+    with _active_runs_lock:
+        return len(_active_runs)
+
+
+def get_queue_info() -> dict:
+    with _active_runs_lock:
+        return {
+            "active_runs": len(_active_runs),
+            "max_concurrent": MAX_CONCURRENT_RUNS,
+            "available_slots": MAX_CONCURRENT_RUNS - len(_active_runs),
+        }
+
+
+def get_user_runs(user_id: str) -> list[ProgressTracker]:
+    return [t for t in _trackers.values() if t.user_id == user_id]
 
 
 async def sse_generator(run_id: str) -> AsyncGenerator[str, None]:
@@ -79,7 +141,6 @@ async def sse_generator(run_id: str) -> AsyncGenerator[str, None]:
     tracker = get_tracker(run_id)
     queue = tracker.subscribe()
     try:
-        # Send initial state
         yield f"data: {json.dumps(tracker.to_dict())}\n\n"
         while True:
             try:
@@ -88,7 +149,6 @@ async def sse_generator(run_id: str) -> AsyncGenerator[str, None]:
                 if data.get("status") in ("completed", "failed", "cancelled"):
                     break
             except asyncio.TimeoutError:
-                # Keep-alive
                 yield f": keepalive\n\n"
     finally:
         tracker.unsubscribe(queue)
