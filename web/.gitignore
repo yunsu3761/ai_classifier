@@ -1,0 +1,54 @@
+# =========================
+# Node / React / Vite
+# =========================
+node_modules/
+dist/
+build/
+.vite/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =========================
+# Python
+# =========================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info
+*.egg
+*.whl
+.Python
+
+# virtual environment
+venv/
+env/
+.venv/
+ENV/
+
+# =========================
+# Python cache
+# =========================
+.pytest_cache/
+.mypy_cache/
+.cache/
+
+# =========================
+# OS
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# IDE
+# =========================
+.vscode/
+.idea/
+
+# =========================
+# env
+# =========================
+.env
+.env.*

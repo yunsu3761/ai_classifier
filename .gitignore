@@ -1,42 +1,54 @@
-# Environment files
-.env
-.env.local
-.env.development
-.env.test
-.env.production
-
-# API keys and secrets
-*.key
-secrets.txt
-
-# Python-generated files
-__pycache__/
-*.py[oc]
-build/
+# =========================
+# Node / React / Vite
+# =========================
+node_modules/
 dist/
-wheels/
+build/
+.vite/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =========================
+# Python
+# =========================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
 *.egg-info
+*.egg
+*.whl
+.Python
 
-# Virtual environments
-.venv
+# virtual environment
+venv/
+env/
+.venv/
+ENV/
 
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
+# =========================
+# Python cache
+# =========================
+.pytest_cache/
+.mypy_cache/
+.cache/
 
+# =========================
 # OS
+# =========================
 .DS_Store
 Thumbs.db
 
-# Logs
-*.log
+# =========================
+# IDE
+# =========================
+.vscode/
+.idea/
 
-# Large files
-*.zip
-*.tar.gz
-
-# Temp output
-save_output/
-temp_original.xlsx
+# =========================
+# env
+# =========================
+.env
+.env.*
