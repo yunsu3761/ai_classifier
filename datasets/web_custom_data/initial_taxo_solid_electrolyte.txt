@@ -1,0 +1,136 @@
+Label: solid_electrolyte
+Dimension: technology_classification
+Description: Solid Electrolyte: Electrolytes that conduct lithium ions in a solid state are the core materials of All-Solid-State Batteries (SSBs). These electrolytes facilitate the movement of ions within a solid lattice or amorphous structure, offering higher stability and safety compared to liquid electrolytes. The efficiency and lifespan of a battery depend on various performance factors of the electrolyte, such as interfacial properties with electrodes, ionic conductivity, and mechanical stability. The primary challenges facing solid-state electrolytes are cost-effectiveness and the feasibility of mass production. Related patents focus on the composition and structural diversity of solid-state electrolytes, including, for example, new oxide-based solid electrolytes, high-ionic-conductivity polymer electrolytes, and composite solid electrolyte films. In particular, lithium thioborate compositions or lithium nitride-based oxides play a critical role in enhancing lithium-ion conductivity. Furthermore, solid electrolyte systems combined with organic solvents maximize ionic conductivity while ensuring mechanical stability. These technologies contribute to maximizing performance in various application fields associated with the commercialization of all-solid-state batteries.
+Level: 0
+Source: Initial
+========================================
+Children:
+     Label: 고체전해질-고체
+     Dimension: technology_classification
+     Description: 고체전해질-고체: 리튬이온 전도성이 있는 무기·유기 고체 소재로, 전고체전지(SSB)에서 액체 전해질 대신 리튬 이온을 전도하는 역할을 수행한다. 관련 특허는 고체 전해질의 이온 전도도 향상, 계면 안정성 최적화, 기계적 안정성 증대를 위한 소결, 코팅, 도핑 기술을 포함하며, 예를 들어, 나노 알루미나 표면 수정 기술이 적용된 양극 활성 물질과 리튬 이온 추출 장치 및 이온 교환 반응기 등의 기술이 포함된다.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+     Children:
+          Label: solid_electrolyte_single_phase
+          Dimension: technology_classification
+          Description: Solid electrolyte single phase: A material consisting of a single series that serves as a core component in all-solid-state batteries (SSBs), designed to facilitate effective ion conduction in a solid state for lithium ions, optimizing interfacial characteristics, ionic conductivity, and mechanical stability. Patents in this domain explore the development of various inorganic and organic solid electrolyte materials with lithium ion conductivity, focusing on improvements in ionic conduction pathways through sulfide, oxide, polymer, and halide-based solid electrolytes. They also include techniques such as sintering, coating, and doping to enhance electrode interfacial contact and ionic conductivity while addressing mechanical and thermal stability essential for the commercialization of all-solid-state batteries.
+          Level: 2
+          Source: Initial
+          ----------------------------------------
+          Children:
+               Label: sulfur-based lithium compound solid electrolytes
+               Dimension: technology_classification
+               Description: Sulfur-based lithium compounds serve as critical materials in solid-state batteries (SSBs), functioning as electrolytes that effectively conduct lithium ions in a solid state. These compounds create three-dimensional continuous pathways for lithium ion conduction within their crystal structure, enabling low interfacial resistance and high ionic conductivity. Related patents propose various compositions and manufacturing methods aimed at enhancing the ionic conductivity of solid electrolytes, including sintering and doping techniques to improve mechanical stability and optimize interfacial characteristics with electrodes. Additionally, polymer electrolyte compositions and diverse ionic conduction matrices are utilized to further enhance ionic conductivity.
+               Level: 3
+               Source: Initial
+               ----------------------------------------
+               ----------------------------------------
+               Label: 고체전해질-고체-단일-산화물계
+               Dimension: technology_classification
+               Description: 고체전해질-고체-단일-산화물계: 산소 기반 리튬화합물로 구성된 고체 전해질로, 전고체전지의 핵심 소재로 사용되며 리튬 이온의 전도성을 제공하는 구조를 갖추고 있다. 관련 특허들은 리튬 이온 이동 경로 최적화, 전극과 계면 특성 개선, 기계적 안정성을 향상시키기 위한 기술 및 리튬 화합물과 니켈, 망간, 코발트 화합물 혼합을 통한 양극 활성 물질 제조 방법, 리튬을 선택적으로 회수하는 이온 교환 구조 기술을 포함한다.
+               Level: 3
+               Source: Initial
+               ----------------------------------------
+               ----------------------------------------
+               Label: solid electrolyte-solid-single-polymer system
+               Dimension: technology_classification
+               Description: Solid electrolyte-solid-single-polymer system: A technology utilizing an organic polymer matrix for uniformly dispersing lithium salts to enhance lithium ion mobility, crucial for the advancement of solid-state batteries (SSBs). This system focuses on maximizing ionic conductivity in a solid state while improving interfacial characteristics, ionic conductivity, and mechanical stability. Related patents encompass various solutions aimed at optimizing lithium ion conduction, including surface modification techniques for active materials like lithium metal anodes, lithium cobalt oxide, and nickel-manganese composites. Additionally, manufacturing processes for solid electrolytes incorporate organic extractants and ion-exchange resins to facilitate selective lithium adsorption and desorption.
+               Level: 3
+               Source: Initial
+               ----------------------------------------
+               ----------------------------------------
+               Label: 고체전해질-고체-단일-할라이드계
+               Dimension: technology_classification
+               Description: 고체전해질-고체-단일-할라이드계: 리튬 이온을 전도하는 고체 상태의 전해질로, 할로겐 기반 리튬화합물을 사용하여 전고체전지의 성능을 향상시키는 기술. 관련 특허들은 리튬, 클로린, 산소 및 다양한 금속으로 구성된 고체 전해질의 조성과 이를 활용한 전극과의 계면 최적화 기술 및 겔 전해질, 자가 치유 기능을 갖춘 중합체 전해질의 통합 방안을 다룹니다.
+               Level: 3
+               Source: Initial
+               ----------------------------------------
+               ----------------------------------------
+               Label: solid electrolyte - solid - single - other solid electrolytes
+               Dimension: technology_classification
+               Description: This classification of 'inorganic-organic composite electrolytes' encompasses electrolytes that conduct lithium ions in solid form, focusing on various composite electrolytes excluding sulfide, oxide, polymer, and halide types. The primary goal of these electrolytes is to maximize the performance of solid-state batteries (SSB) through optimization of ion conduction pathways, improving interfacial properties with electrodes, and enhancing mechanical stability. Related patents involve the optimization of inorganic and organic solid materials with lithium ion conductivity, application of sintering and coating techniques, and enhancement of ionic conductivity through doping methods. Key aspects include surface modification of electrode active materials and utilization of nanomaterials, particularly their interactions with electrode materials like lithium cobalt oxide and nickel-manganese oxide, all contributing to improved safety and charge performance in solid-state battery applications.
+               Level: 3
+               Source: Initial
+               ----------------------------------------
+               ----------------------------------------
+          ----------------------------------------
+          Label: composite solid electrolyte
+          Dimension: technology_classification
+          Description: Composite solid electrolyte: A mixture of two or more different material classes that combines the advantages of each to enhance lithium ion conductivity, playing a key role in the development of all-solid-state batteries (SSB). It typically includes inorganic and organic solid materials that optimize ion migration paths within crystalline or amorphous structures. Related patents propose methods for manufacturing sulfide-based, oxide-based, and polymer-based electrolytes, utilizing techniques such as sintering, coating, and doping to improve interfacial properties with electrodes and increase ionic conductivity. For example, composites containing lithium cobalt oxide as an anode active material demonstrate enhanced ion conduction efficiency and structural stability of electrode materials.
+          Level: 2
+          Source: Initial
+          ----------------------------------------
+          Children:
+               Label: 고체전해질-고체-하이브리드-황화물
+               Dimension: technology_classification
+               Description: 고체전해질-고체-하이브리드-황화물: 서로 다른 결정상 또는 조성을 가진 황화물을 조합하여 전고체전지(SSB)의 성능을 향상시키는 기술로, 리튬이온 전도성을 개선하고 전극과의 계면 특성을 최적화합니다. 관련 특허들은 황화물계 소재의 소결 및 코팅 기술을 통해 복합 고체전해질을 제조하는 방법을 다루며, 리튬 코발트 산화물 기반 양극 활성 물질에 황화물 전해질을 적용하는 기술 또한 포함됩니다.
+               Level: 3
+               Source: Initial
+               ----------------------------------------
+               ----------------------------------------
+               Label: solid electrolyte-hybrid sulfide-oxide
+               Dimension: technology_classification
+               Description: This classification encompasses the development of solid electrolytes that combine the high ionic conductivity of sulfides with the stability of oxides, aimed at suppressing interfacial reactions and enhancing moisture stability in all-solid-state batteries (SSB) for lithium-ion applications. Related patents include technologies for optimizing ionic conduction pathways, enhancing interfacial contact between electrodes through sintering, coating, and doping techniques, as well as methods for increasing ionic conductivity and resistance to moisture and temperature changes by mixing specific compositions of sulfides and oxides.
+               Level: 3
+               Source: Initial
+               ----------------------------------------
+               ----------------------------------------
+               Label: 고체전해질-고체-하이브리드-황화물-폴리머
+               Dimension: technology_classification
+               Description: 고체전해질-고체-하이브리드-황화물-폴리머: 황화물 입자를 폴리머 매트릭스에 분산시켜 고체 상태에서 리튬 이온을 전도하며, 뛰어난 이온 전도성과 기계적 안정성을 갖춘 전고체전지의 핵심 소재. 관련 특허는 황화물 입자의 소결, 코팅, 도핑 등을 통해 전도 경로를 개선하고, 전극의 성능을 극대화하는 방법론을 포함하며, 리튬 이온 배터리의 양극 활성 물질 제조에서의 다양한 혼합 및 후처리 기술을 다룸.
+               Level: 3
+               Source: Initial
+               ----------------------------------------
+               ----------------------------------------
+               Label: 고체전해질-고체-하이브리드-산화물
+               Dimension: technology_classification
+               Description: 고체전해질-고체-하이브리드-산화물 기술은 서로 다른 산화물계 소재를 혼합하고 도핑 및 결정 구조 변화를 통해 리튬이온의 전도성과 기계적 강도를 개선하는 기술로, 전고체전지(SSB)와 같은 차세대 에너지 저장 장치의 성능 향상에 기여합니다. 관련 특허들은 리튬이온 배터리의 양극 활물질 제조 방법, 다양한 전극 재료 조합, 전도성 및 기계적 특성을 개선하기 위한 소결 및 코팅 기술 등을 포함하며, 예를 들어 리튬 코발트 산화물과 코발트-인 복합체로 이루어진 양극 활물질이 전도성과 기계적 안정성을 보장하는 방식이 제시됩니다.
+               Level: 3
+               Source: Initial
+               ----------------------------------------
+               ----------------------------------------
+               Label: solid-electrolyte-hybrid-oxide-polymer
+               Dimension: technology_classification
+               Description: Solid Electrolyte Hybrid Oxide-Polymer: A technology that enhances interfacial adhesion and processability by incorporating oxide particles into a polymer matrix, enabling low-temperature manufacturing, crucial for solid-state lithium-ion electrolyte compositions. Related patents cover methods for producing active materials for lithium-ion battery anodes, ion exchange reactors for lithium extraction, and approaches to optimize contact between electrodes through the use of oxide-based electrode materials combined with polymer matrices.
+               Level: 3
+               Source: Initial
+               ----------------------------------------
+               ----------------------------------------
+               Label: solid_electrolyte_hybrid
+               Dimension: technology_classification
+               Description: Solid Electrolyte Hybrid: This technology focuses on the development of composite electrolytes that conduct lithium ions in a solid state, achieved through various combinations of halides, sulfides, oxides, and polymers, optimized for specific battery structures and environmental conditions. Related patents include methods for the manufacturing of active materials for lithium-ion battery anodes, ion exchange reactors for lithium extraction, and polymer structures for lithium metal anodes, emphasizing high electrical conductivity and mechanical stability.
+               Level: 3
+               Source: Initial
+               ----------------------------------------
+               ----------------------------------------
+          ----------------------------------------
+     ----------------------------------------
+     Label: 고체전해질-반고체
+     Dimension: technology_classification
+     Description: 고체전해질-반고체: 고체 전해질과 액체 전해질의 혼합 구조로, 전고체전지의 성능을 최적화하여 안정성과 높은 이온전도성을 동시에 확보하는 기술. 이 기술에 관련된 특허는 리튬 이차 전지의 양극 활물질 제조 방법, 리튬 추출을 위한 이온 교환 반응기, 리튬-실리콘 합금/탄소 복합재료의 제조 방법 등을 포함하며, 효율적인 리튬 이온 전도성을 위한 복합 전해질 시스템 개발에 기여한다.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+     ----------------------------------------
+     Label: 고체전해질-겔
+     Dimension: technology_classification
+     Description: 고체전해질-겔: 고분자 네트워크 구조에 액체 전해질을 포획하여 준고체 상태를 형성하는 기술로, 전고체전지의 핵심 소재로서 전극과의 계면 특성 개선, 이온 전도도 향상, 기계적 안정성 강화를 목표로 한다. 관련 특허는 리튬 이온 배터리의 양극 활성 물질 제조 방법, 리튬 추출 장치, 리튬 메탈 음극 구조에 대한 다양한 기술을 포함하며, 고분자 내에서 이온 이동과 기계적 지지 기능의 최적화를 다룬다.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+     ----------------------------------------
+     Label: solid-electrolyte-next-generation
+     Dimension: technology_classification
+     Description: Next-generation solid electrolytes: Advanced materials developed to conduct lithium ions in solid-state form, overcoming the limitations of existing sulfide, oxide, and polymer-based electrolytes, and serving as core components in solid-state batteries (SSBs). Related patents include various technical approaches to enhancing lithium ion conductivity, such as methods for manufacturing cathode active materials for lithium ion batteries, ion exchange reactors for lithium extraction, and preparation methods for lithium-silicon alloy/carbon composites, all aimed at improving ion transport in solid lattice or amorphous structures.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+     ----------------------------------------
+     Label: solid electrolyte manufacturing technology
+     Dimension: technology_classification
+     Description: Solid electrolyte manufacturing technology: Techniques aimed at enhancing the performance of solid electrolytes, crucial for all-solid-state batteries (SSBs), focusing on optimizing ionic conductivity and mechanical stability through methods such as electrode-electrolyte interface coatings, binder and dispersant additives, roll-to-roll thin film production, low-temperature sintering, and in-situ solidification. Related patents include processes for preparing in-situ gel electrolytes by mixing 1,3-dioxolane with succinonitrile and lithium salts, and methods for solidifying electrolytes within the battery to improve safety and longevity.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+     ----------------------------------------

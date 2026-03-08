@@ -1,0 +1,42 @@
+# Environment files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# API keys and secrets
+*.key
+secrets.txt
+
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Large files
+*.zip
+*.tar.gz
+
+# Temp output
+save_output/
+temp_original.xlsx

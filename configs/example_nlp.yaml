@@ -1,0 +1,39 @@
+dimensions:
+  tasks:
+    definition: 'Task: we assume that all papers are associated with a specific task(s).
+      Always output "Task" as one of the paper types unless you are absolutely sure
+      the paper does not address any task.'
+    node_definition: Defines and categorizes research efforts aimed at solving specific
+      problems or objectives within a given field, such as classification, prediction,
+      or optimization.
+  methodologies:
+    definition: 'Methodology: a paper that introduces, explains, or refines a method
+      or approach, providing theoretical foundations, implementation details, and empirical
+      evaluations to advance the state-of-the-art or solve specific problems.'
+    node_definition: Types of techniques, models, or approaches used to address various
+      challenges, including algorithmic innovations, frameworks, and optimization strategies.
+  datasets:
+    definition: 'Datasets: introduces a new dataset, detailing its creation, structure,
+      and intended use, while providing analysis or benchmarks to demonstrate its relevance
+      and utility. It focuses on advancing research by addressing gaps in existing
+      datasets/performance of SOTA models or enabling new applications in the field.'
+    node_definition: Types of methods to structure data collections used in research,
+      including ways to curate or analyze datasets, detailing their properties, intended
+      use, and role in advancing the field.
+  evaluation_methods:
+    definition: 'Evaluation Methods: a paper that assesses the performance, limitations,
+      or biases of models, methods, or datasets using systematic experiments or analyses.
+      It focuses on benchmarking, comparative studies, or proposing new evaluation
+      metrics or frameworks to provide insights and improve understanding in the field.'
+    node_definition: Types of methods for assessing the performance of models, datasets,
+      or techniques, including new metrics, benchmarking techniques, or comparative
+      performance studies.
+  real_world_domains:
+    definition: 'Real-World Domains: demonstrates the use of techniques to solve specific,
+      real-world problems or address specific domain challenges. It focuses on practical
+      implementation, impact, and insights gained from applying methods in various
+      contexts. Examples include: product recommendation systems, medical record summarization,
+      etc.'
+    node_definition: Types of practical or industry-specific domains in which techniques
+      and methodologies can be applied, exploring implementation, impact, and challenges
+      of real-world problems.

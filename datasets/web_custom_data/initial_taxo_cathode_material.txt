@@ -1,0 +1,164 @@
+Label: cathode_material
+Dimension: technology_classification
+Description: Cathode Material: The cathode active materials in secondary batteries store and release electrical energy through the intercalation and de-intercalation of lithium ions. These materials are engineered for various applications, including electric vehicles (EVs), energy storage systems (ESS), and portable IT devices. Their performance is dictated by several factors, such as the chemical composition, crystal structure, nickel content, surface coating, and doping technologies. This field encompasses the comprehensive research and development of cathode materials for lithium-ion batteries. It also includes studies on various compositions and manufacturing techniques aimed at enhancing battery safety and efficiency. Advancements in these technologies are essential for next-generation energy storage solutions like EVs and ESS. This research presents various compositions and structures for lithium-ion battery cathode active materials, with a particular focus on manufacturing methods involving artificial graphite and metal composites, the utilization of high-nickel cathode materials, and recycling technologies for spent cathode materials through thermal treatment. For instance, reusing recovered active materials by applying heat treatment and adding lithium precursors contributes to the development of sustainable battery technologies. Furthermore, techniques regarding the fabrication of composite cathode materials play a critical role in enhancing the energy density and cycle life of batteries. Such technologies can maximize battery performance by establishing optimal electrode structures and conductive networks.
+Level: 0
+Source: Initial
+========================================
+Children:
+     Label: NCM
+     Dimension: technology_classification
+     Description: NCM (Nickel-Cobalt-Manganese) compounds are layered lithium metal oxides used as cathode materials in lithium-ion batteries, capable of storing and releasing electrical energy through the insertion and extraction of lithium ions. The composition and crystal structure of NCM compounds are key factors determining the energy density, lifespan, and safety of batteries, with specific emphasis on the ratio of nickel, cobalt, and manganese. Related patents involve methods such as co-precipitation for synthesizing NCM precursors, including pH control and the use of structural control agents to enhance material morphology, as well as techniques for producing high-gradient single crystal cathodes suitable for high-performance batteries in applications like electric vehicles, energy storage systems, and portable IT devices.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+     Children:
+          Label: NCM-High Ni Cathodes
+          Dimension: technology_classification
+          Description: NCM-High Ni Cathodes: Layered cathode materials with nickel content exceeding 75%, developed to implement high energy density for applications like electric vehicles and energy storage systems. They efficiently store and release electrical energy through the insertion and extraction of lithium ions, although higher nickel content can lead to decreased thermal stability requiring surface coating and doping techniques. Patents related to NCM-High Ni Cathodes include methodologies for precise adjustment of nickel, cobalt, and manganese ratios through co-precipitation processes, as well as innovations in single crystal design and low-temperature sintering technology that enhance energy efficiency and yield. Various surface modification techniques, such as nano-alumina coatings, are also covered to improve cathode safety and performance.
+          Level: 2
+          Source: Initial
+          ----------------------------------------
+          ----------------------------------------
+          Label: NCM-Mid Ni
+          Dimension: technology_classification
+          Description: NCM-Mid Ni: A class of cathode materials with nickel content adjusted between 45% and 75%, suitable for large batteries used in electric vehicles and energy storage systems (ESS). These materials store and release electrical energy through the intercalation and deintercalation of lithium ions, with energy density, lifespan, and safety determined by their specific composition and crystal structure. Related patents cover methods for manufacturing cathode active materials, synthesis processes of precursors, impurity removal techniques, and advancements in single crystal design and low-temperature sintering technologies that enhance performance during charge and discharge cycles while improving battery safety.
+          Level: 2
+          Source: Initial
+          ----------------------------------------
+          ----------------------------------------
+          Label: NCM-Lithium-Ion Battery Cathodes
+          Dimension: technology_classification
+          Description: NCM-Lithium-Ion Battery Cathodes: Research and development focused on cathode materials for lithium-ion batteries with nickel content below 45%, enhancing stability, lifespan, and output characteristics suitable for hybrid vehicles and small IT devices. Related patents encompass methods for precise manufacturing of precursors using co-precipitation technology, innovations in single crystal design and low-temperature sintering at 975°C, modifications of the active cathode material surface with nano-alumina, and a core-shell structure comprising lithium-cobalt oxide and cobalt-phosphate for improved safety and performance.
+          Level: 2
+          Source: Initial
+          ----------------------------------------
+          ----------------------------------------
+     ----------------------------------------
+     Label: NCMA_Cathode_Materials
+     Dimension: technology_classification
+     Description: NCMA (Nickel-Cobalt-Manganese-Aluminum) is a layered cathode material used primarily in lithium-ion batteries, which incorporates aluminum doping to improve structural stability, thermal stability, and to suppress interfacial side reactions during lithium ion insertion and extraction. Patents related to NCMA cathode materials include methods for enhancing long-term cycle stability through aluminum doping in Ni-rich compositions, techniques for preparing homogeneous precursors using co-precipitation reactions, and processes for optimizing electrochemical performance through post-treatment of the obtained materials.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+     Children:
+          Label: NCMA-High Ni Cathode Material
+          Dimension: technology_classification
+          Description: NCMA-High Ni Cathode Material: A high-performance cathode material for lithium-ion batteries that improves structural stability and lifespan by incorporating aluminum into a high nickel composition, enhancing high-temperature charge and discharge characteristics, and designed for applications in electric vehicles and energy storage systems. Related patents encompass precursor manufacturing technologies based on co-precipitation reactions, dual-coating techniques (oxide + conductive coating), and single crystal design methods aimed at maximizing performance in high voltage and high-temperature environments.
+          Level: 2
+          Source: Initial
+          ----------------------------------------
+          ----------------------------------------
+          Label: NCMA-Mid Ni Cathode Materials
+          Dimension: technology_classification
+          Description: NCMA-Mid Ni Cathode Materials: A high-performance cathode material for secondary batteries, specifically designed with medium nickel content and aluminum addition to enhance thermal stability and output characteristics. This material facilitates the insertion and extraction of lithium ions for energy storage and release, utilized in applications such as electric vehicles, energy storage systems, and small IT devices. Related patents discuss techniques for precursor synthesis through coprecipitation reactions, single crystal design, and dual coatings (oxide and conductive coatings) aimed at minimizing performance degradation in high voltage and high-temperature environments. They also highlight aluminum doping's role in suppressing interfacial side reactions and oxygen release in Ni-rich series, thereby enhancing long-term cycle stability.
+          Level: 2
+          Source: Initial
+          ----------------------------------------
+          ----------------------------------------
+          Label: NCMA cathode material
+          Dimension: technology_classification
+          Description: NCMA (Nickel Cobalt Manganese Aluminum) cathode material: A versatile active cathode material designed with low nickel content and aluminum additives, emphasizing safety and lifespan in lithium-ion batteries. It facilitates energy storage and release through lithiation and delithiation, making it suitable for applications prioritizing safety, such as electric vehicles, energy storage systems, and small IT devices. Enhancements in structural stability and thermal stability are achieved through aluminum doping. Related patents include compositions and manufacturing methods for NCMA cathode materials, such as precursor production via co-precipitation reactions and dual coating techniques to minimize performance degradation in high voltage and high temperature environments. Additionally, innovations in uniform doping of precursors and surface modification technologies using nano aluminum coatings to maximize battery safety and lifespan are encompassed.
+          Level: 2
+          Source: Initial
+          ----------------------------------------
+          ----------------------------------------
+     ----------------------------------------
+     Label: NCA
+     Dimension: technology_classification
+     Description: NCA (Nickel-Cobalt-Aluminum) is a high-performance material used as the active cathode in lithium-ion batteries, characterized by a layered lithium metal oxide structure that includes nickel, cobalt, and aluminum. This combination plays a crucial role in various applications such as electric vehicles, energy storage systems (ESS), and portable IT devices, affecting energy density, safety, and lifespan. Patents associated with NCA focus on various technologies aimed at enhancing the properties of the material, such as methods for increasing nickel content to enhance energy density, co-doping with cobalt and magnesium for performance improvements, developing non-flammable electrolytes for stability at high temperatures, and optimizing electrode performance through nanostructure adjustments.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+     Children:
+          Label: NCA-High Ni Cathode Materials
+          Dimension: technology_classification
+          Description: NCA-High Ni Cathode Materials: This technology involves lithium-ion battery cathodes with nickel content elevated to over 75-90%, achieving high energy densities (greater than 190 mAh/g) suitable for long-range electric vehicle (EV) applications. These materials utilize a layered lithium metal oxide structure comprised of nickel (Ni), cobalt (Co), and aluminum (Al) to determine energy density, safety, and lifespan. Related patents include innovative compositions and methods for high nickel cathodes, solid electrolytes, and nano-silicon composites aimed at enhancing battery performance and supporting longer driving ranges, along with advancements in heat-stable manufacturing techniques to ensure battery safety and longevity.
+          Level: 2
+          Source: Initial
+          ----------------------------------------
+          ----------------------------------------
+          Label: NCA-Mid Ni
+          Dimension: technology_classification
+          Description: NCA-Mid Ni: A type of cathode material for secondary batteries that maintains an intermediate nickel content, balancing capacity and stability for applications such as electric vehicles and energy storage systems. Related patents involve methods for manufacturing cathode active materials, techniques for lithium extraction and purification, and surface modification technologies for electrode materials, such as processes for producing cathode materials from mixtures of nickel and cobalt compounds.
+          Level: 2
+          Source: Initial
+          ----------------------------------------
+          ----------------------------------------
+          Label: NCA Cathode Materials
+          Dimension: technology_classification
+          Description: NCA Cathode Materials: Active cathode materials characterized by low nickel content, designed to provide enhanced safety and longevity in lithium-ion batteries by facilitating the insertion and extraction of lithium ions to store and release electric energy. Related patents encompass compositions, crystal structures, surface coatings, and doping technologies of NCA cathodes, focusing on optimizing energy density, safety, and lifespan of batteries, including innovative surface treatment methods for high-temperature stability.
+          Level: 2
+          Source: Initial
+          ----------------------------------------
+          ----------------------------------------
+     ----------------------------------------
+     Label: LMR Cathode Materials
+     Dimension: technology_classification
+     Description: LMR Cathode Materials: Layered cathode materials for lithium-ion batteries, characterized by high lithium and manganese content, facilitating energy storage and release through lithium ion insertion and extraction, with advantages in cost efficiency and structural stability but also challenges in initial charging efficiency and voltage drop. Related patents focus on the optimization of production processes and composition for LMR cathode materials, including techniques for precursor design, surface coating, and multi-element doping, with an emphasis on improving battery performance through complex layered oxide composites.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+     ----------------------------------------
+     Label: 양극재-NMx
+     Dimension: technology_classification
+     Description: 양극재-NMx: 니켈-망간 기반 산화물로서, 경제성과 공급망 리스크를 줄이기 위해 코발트를 최소화한 혁신적 이차전지 소재입니다. 이 소재는 리튬 이온을 통해 전기에너지를 저장하고 방출할 수 있으며, 전기차와 에너지 저장 시스템(ESS) 등 다양한 응용 분야에서 사용됩니다. 관련 특허들은 Co-free 설계를 통한 몰리브덴 및 황을 도핑한 리튬-리치 망간 양극재 개발, 고니켈 및 Co-free 혼합염을 이용한 전극 전구체 제조 기술 등을 포함하며, 이러한 기술들은 배터리의 에너지 밀도, 수명 및 안전성을 향상시키는 혁신을 제공합니다.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+     ----------------------------------------
+     Label: LCO_Cathode_Materials
+     Dimension: technology_classification
+     Description: LCO (LiCoO2): Cobalt-based layered cathode material used in lithium-ion batteries, which facilitates the insertion and extraction of lithium ions to store and release electric energy. It possesses high voltage and energy density, primarily utilized in small IT devices like smartphones and laptops. Related patents cover methods for manufacturing cathodes based on lithium cobalt oxide and nickel-manganese composites, focusing on optimizing energy density, lifespan, and safety. For instance, technologies enhancing thermal stability and electrode performance through surface coating of LiCoO2 are included.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+     ----------------------------------------
+     Label: cathode_material_LFP
+     Dimension: technology_classification
+     Description: LFP (Lithium Iron Phosphate): A cathode material characterized by an olivine structure that allows lithium ions to be inserted and extracted, providing energy storage for lithium-ion batteries. LFP features low energy density but high thermal stability, making it suitable for applications requiring safety such as energy storage systems (ESS), electric buses, and low-speed electric vehicles. Patents related to LFP cathode materials often explore innovations in particle size control, carbon coating techniques to enhance electrical conductivity and output characteristics, and the use of nanocomposite structures containing lithium and phosphate to bolster overall battery efficiency and safety.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+     ----------------------------------------
+     Label: LMFP Cathode Material
+     Dimension: technology_classification
+     Description: LMFP Cathode Material: A lithium-ion battery cathode material that enhances voltage and energy density through the addition of manganese (Mn) to lithium iron phosphate (LFP), enabling efficient charge and discharge by lithium ion insertion and extraction, while maintaining safety and longevity. Related patents encompass the manufacturing processes of LMFP and other cathode materials, including compositions involving nickel-cobalt-manganese (NCM), as well as advancements in surface coating and doping technologies aimed at improving cycle life, energy density, and operational stability under varying temperatures.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+     ----------------------------------------
+     Label: cathode_material_LMO
+     Dimension: technology_classification
+     Description: LMO (Lithium Manganese Oxide): A manganese-based spinel structure cathode material used in lithium-ion batteries that effectively stores and releases electrical energy through the insertion and extraction of lithium ions. The material incorporates surface coating and doping techniques to enhance thermal stability and is suitable for high-power applications in hybrid vehicles, power tools, and energy storage systems (ESS). Related patents include methods for enhancing battery energy density and lifespan through compositions of spinel phase structures, crystal structures, and coating technologies. Examples include the development of lithium-rich manganese nickel oxides with manganese spinel coating layers and research aimed at maximizing electrode material performance through microstructural characteristics such as twin grain boundaries in spinel.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+     ----------------------------------------
+     Label: composite_cathode_materials
+     Dimension: technology_classification
+     Description: Composite Cathode Materials: Innovative hybrid cathode materials created by mixing or coating different cathode materials (such as NCM and LFP) to combine their advantages, aimed at maximizing the performance of secondary batteries. Related patents include methods for manufacturing precursors of lithium complex oxides containing nickel and manganese, techniques for creating cathode materials modified with nano-alumina, and synthesis of high-performance cathode materials using combinations of various metal oxides.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+     ----------------------------------------
+     Label: sodium_based_cathode_materials
+     Dimension: technology_classification
+     Description: Sodium-based cathode materials for sodium-ion batteries serve the function of storing and releasing electrical energy. They are recognized for their cost-effectiveness and resource supply stability compared to lithium-ion batteries, making them prominent in various applications such as energy storage systems (ESS), low-speed electric vehicles (EV), and large-scale storage devices. Related patents explore advancements in materials designed to enhance electrochemical performance through sodium ion insertion and extraction. Key technologies include various structural types, such as layered, olivine, and Prussian blue, with innovations focusing on improving low-temperature performance, achieving high voltage, and applying diverse coating and doping techniques.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+     ----------------------------------------
+     Label: 양극재-기타 양극재
+     Dimension: technology_classification
+     Description: 양극재-기타 양극재: 전고체전지, 리튬황전지 및 리튬공기전지 등 차세대 전지에서 사용되는 특수 조성 및 구조의 양극재로, 리튬 이온의 삽입 및 탈리를 통해 전기 에너지를 저장하고 방출하는 기능을 수행한다. 이 소재의 조성, 결정 구조, 니켈 함량 및 표면 코팅은 전지의 성능에 큰 영향을 미친다. 관련 특허는 리튬 코발트 산화물(LiCoO2) 코어에 코발트-인산 화합물 쉘을 코팅한 기술, 니켈-망간 복합체를 사용한 양극재 제조 방법, 고에너지 밀도를 위한 양극재의 혁신적인 조성 및 표면 처리 기술 등에 중점을 두고 있다.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+     ----------------------------------------
+     Label: 양극재-평가 방법
+     Dimension: technology_classification
+     Description: 양극재-평가 방법: 이차전지의 성능을 결정짓는 양극재의 용량, 수명, 열안정성, 전기화학적 특성을 측정 및 분석하는 시험·평가 기술로, 전기차, 에너지 저장 시스템, 소형 IT 기기 등에 응용 가능한 양극재 개발을 지원한다. 관련 특허 기술들은 전기화학 임피던스 분석, 충방전 사이클 테스트, DSC/TGA 열분석 등을 통한 전기적 특성 정량화, 수명 및 안정성 평가, 열적 안정성 분석을 포함하며, 니켈 및 망간 조정, 나노 코팅 기술, 코프리시피테이션 방법 같은 양극재 전구체 제조 기술도 포함된다.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+     ----------------------------------------

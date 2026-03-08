@@ -1,0 +1,124 @@
+Label: recycling
+Dimension: technology_classification
+Description: Recycling: Recycling is the comprehensive process of recovering valuable metals and materials from end-of-life products—particularly spent batteries and metal scrap—to reuse them or reintegrate them into the production of new products. This process is becoming increasingly important with the proliferation of electric vehicles (EVs) and energy storage systems (ESS), and is broadly divided into pre-treatment, post-treatment, and material remanufacturing stages. These recycling processes contribute significantly to minimizing environmental impact through sustainable resource management and establishing new raw material supply chains, with a focus on promoting the reuse of metals and compounds. Recycling technologies primarily focus on the recovery and recycling of spent batteries and metal scrap, and they differ from conventional waste treatment technologies. Specifically, in spent battery recycling, technologies that effectively extract precious metals such as lithium, nickel, and cobalt and convert them into new battery materials are essential. For example, as a method for manufacturing cathode active materials for lithium-ion batteries, there is a process of grinding a mixture containing lithium, nickel, manganese, and cobalt compounds. Additionally, technology for extracting lithium from brine involves using an ion-exchange reactor to produce a lithium eluate, which plays a critical role in recovering lithium from spent batteries. These technologies contribute to enhancing quality through impurity removal, the production of high-purity lithium compounds, and recrystallization processes.
+Level: 0
+Source: Initial
+========================================
+Children:
+     Label: 리싸이클링-전처리
+     Dimension: technology_classification
+     Description: 리싸이클링-전처리: 폐배터리의 안전한 해체와 파쇄를 통해 후속 공정에 적합한 중간 원료인 블랙매스 및 블랙 합금을 제조하는 단계로, 전기차 및 에너지 저장 장치의 확산에 따른 폐배터리 재활용 필요성이 증가함에 따라 중요성이 높아지고 있다. 관련 특허들은 폐배터리에서 리튬, 니켈, 코발트 등 유가금속을 추출하기 위한 다양한 방법, 예를 들어 리튬 이차 배터리 양극 활성 물질을 제조하기 위한 혼합물 파쇄 방법, 리튬 추출을 위한 전극 및 전해질 사용, 리튬 탄산염 추출 및 재결정화 기술 등을 포함한다.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+     Children:
+          Label: recycling_preprocessing_storage_diagnostics
+          Dimension: technology_classification
+          Description: Recycling preprocessing storage diagnostics: A crucial process in recycling used batteries where collected batteries are safely stored and assessed for remaining capacity, internal resistance, and visible damage to evaluate the suitability for subsequent recycling steps, especially in light of the growing adoption of electric vehicles and energy storage systems. Patents related to this dimension include technologies for manufacturing active materials for lithium secondary batteries, lithium extraction methods, and modifications of cathode materials and electrode surfaces, each contributing to the recycling and reuse of spent batteries.
+          Level: 2
+          Source: Initial
+          ----------------------------------------
+          ----------------------------------------
+          Label: recycling_preprocessing_discharging_crushing
+          Dimension: technology_classification
+          Description: Recycling preprocessing discharging and crushing: A critical process in recycling waste batteries that involves removing residual charge through brine, low-temperature, and energy recovery methods, followed by crushing in vacuum, nitrogen, and wet environments to prevent fires and separate metals, plastics, and electrode materials for safe dismantling and recovery of valuable metals and materials. Related patents include various methodologies for extracting and purifying valuable metals such as lithium, nickel, and cobalt, including devices like 'ion exchange reactors for generating lithium eluate solutions' and methods like 'extracting lithium from brine' using chemical additives for effective separation.
+          Level: 2
+          Source: Initial
+          ----------------------------------------
+          ----------------------------------------
+     ----------------------------------------
+     Label: recycling_dry_process
+     Dimension: technology_classification
+     Description: Recycling dry process: A high-temperature technique for melting end-of-life batteries to recover metals in alloy form while separating non-metallic components as slag, aimed at facilitating the growing management of waste batteries from electric vehicles and energy storage systems. Related patents include technologies for manufacturing electrode active materials from lithium-ion batteries, lithium extraction methods, and ion exchange reactors, emphasizing processes that enhance metal recovery efficiency and ensure the purity of recycled metals through slag separation.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+     Children:
+          Label: recycling_dry_process_smelting
+          Dimension: technology_classification
+          Description: Recycling Dry Process Smelting: A high-temperature process used to recover metals in alloy form from end-of-life batteries, effectively separating non-metallic components as slag. Related patents encompass technologies for the production of active materials for lithium-ion battery anodes and cathodes, including methods for mixture grinding, ion exchange reactions for lithium extraction, and electrolyte injection techniques to enhance metal recovery efficiency and product quality.
+          Level: 2
+          Source: Initial
+          ----------------------------------------
+          ----------------------------------------
+          Label: recycling_dry_process_slag
+          Dimension: technology_classification
+          Description: Recycling Dry Process Slag: A byproduct resulting from the melting of non-metal wastes, containing lithium, aluminum, manganese, and other elements, which undergoes cooling, crushing, and magnetic separation to recover valuable metals or to be recycled as construction and cement materials. Related patents encompass various technological applications such as methods for manufacturing cathode active materials from lithium-ion batteries, lithium extraction processes for ammonia production, and lithium carbonate extraction techniques from salt lakes, all aimed at enhancing the efficiency and sustainability of recycling processes.
+          Level: 2
+          Source: Initial
+          ----------------------------------------
+          ----------------------------------------
+     ----------------------------------------
+     Label: recycling_wet_process
+     Dimension: technology_classification
+     Description: Recycling Wet Process: A sophisticated technology for extracting valuable metals from end-of-life products, particularly used batteries, by leaching black mass in acid or alkali solutions, followed by precipitation and purification processes. Related patents include methods for ion exchange reactions for lithium extraction, processes for back-extraction of lithium carbonate, and technologies that optimize impurity removal and enhance metal recovery efficiency.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+     Children:
+          Label: recycling_wet_process_lithium_recovery
+          Dimension: technology_classification
+          Description: Recycling wet process for lithium recovery: A crucial method in the recycling of waste batteries, involving the leaching of black mass with acidic or alkaline solutions to extract lithium in solution form and subsequent precipitation and purification to produce lithium carbonate and lithium hydroxide. Related patents include techniques for pH control of slurries, washing of solid precipitates, impurity removal, and various chemical compositions aimed at enhancing the solubility of lithium ions, such as the use of concentrated sulfuric acid for pH adjustment and sodium carbonate for lithium carbonate precipitation.
+          Level: 2
+          Source: Initial
+          ----------------------------------------
+          ----------------------------------------
+          Label: recycling_wet_process_precious_metal_recovery
+          Dimension: technology_classification
+          Description: Recycling Wet Process Precious Metal Recovery: A technological approach for selectively leaching, solvent extracting, chemically precipitating, and electro-extracting metals such as nickel, cobalt, manganese, and copper from waste batteries and metal scraps to efficiently recover precious metals. Patents related to this process include methods for enhancing metal separation in cathode materials of used lithium-ion batteries by adding pH regulators, utilizing sodium carbonate solutions for pH adjustment in pre-treatment, and increasing pH beyond specific thresholds during the synthesis of metal precursors.
+          Level: 2
+          Source: Initial
+          ----------------------------------------
+          ----------------------------------------
+     ----------------------------------------
+     Label: recycling-materials-remanufacturing
+     Dimension: technology_classification
+     Description: Recycling-materials remanufacturing: The process of reclaiming valuable metals and graphite from waste batteries and metal scrap to convert them into new battery materials, crucial for the growth of electric vehicles and energy storage systems. Related patents encompass technologies for lithium ion battery cathode active material production, lithium extraction and crystallization methods, and innovative techniques for synthesizing lithium metal anodes and forming core-shell structures in cathode materials.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+     Children:
+          Label: recycling_material_remanufacturing_cathode_materials
+          Dimension: technology_classification
+          Description: Recycling Material Remanufacturing of Cathode Materials: This technology encompasses the processes involved in re-synthesizing and lithium-activating collected metals into cathode active materials such as NCM and LFP from recovered metals, including valuable metals from spent batteries and metal scraps, intended for use in the manufacturing of new batteries. The main goal is to enhance supply chain sustainability through resource recycling and effectively produce cathode active materials needed for electric vehicles and energy storage systems (ESS). Patents related to this technology include methods for optimizing the particle size and composition of cathode active material by grinding and mixing lithium compounds, nickel compounds, manganese compounds, and cobalt compounds during lithium-ion battery cathode manufacturing. Examples include modifying the surface of cathode active materials with nano-alumina to enhance electrochemical performance, and manufacturing lithium complex oxides using core-shell structures of nickel-manganese hydroxide. These technologies contribute to maximizing battery energy density and cycle life while reducing impurities during lithium extraction and recrystallization for a purer lithium source.
+          Level: 2
+          Source: Initial
+          ----------------------------------------
+          ----------------------------------------
+          Label: recycling-anode-materials-manufacturing
+          Dimension: technology_classification
+          Description: Recycling-Anode-Materials-Manufacturing: The technology for reusing graphite and silicon-based anode materials by cleaning, classifying, and surface modifying reclaimed materials from spent batteries for the production of new batteries. Related patents detail methodologies for restoring the electrochemical properties of graphite and silicon particles, emphasizing particle size adjustment and impurity removal techniques, with specific approaches proposed for silicon-graphite composites to enhance electrical conductivity and cycle life through high-temperature treatment and chemical surface modification.
+          Level: 2
+          Source: Initial
+          ----------------------------------------
+          ----------------------------------------
+          Label: recycling-material-remanufacturing-other-industries
+          Dimension: technology_classification
+          Description: The process of recycling recovered metals and carbon materials from batteries and metal scraps for use in other industries such as alloys, catalysts, electronic materials, and construction materials, aimed at enhancing environmental sustainability, minimizing raw material usage, and creating economic value. Related patents include methods for manufacturing lithium-cobalt oxide as active materials for lithium-ion battery cathodes, production techniques for lithium-silicon alloys and carbon composites using recovered graphite, and processes for the removal of impurities and reprocessing to improve the quality of raw materials.
+          Level: 2
+          Source: Initial
+          ----------------------------------------
+          ----------------------------------------
+     ----------------------------------------
+     Label: next_generation_recycling
+     Dimension: technology_classification
+     Description: Next Generation Recycling: A novel recycling process designed to reduce environmental impact and improve efficiency compared to traditional dry and wet methods, focusing on the recovery of valuable metals and materials from end-of-life products like used batteries. Patents included in this dimension cover technologies for manufacturing cathode active materials for lithium-ion batteries, devices for extracting lithium from salt lakes, and methods employing ion exchange reactors to generate lithium leach solutions, demonstrating various techniques for efficient resource recovery and minimizing ecological burdens.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+     Children:
+          Label: next_generation_recycling
+          Dimension: technology_classification
+          Description: Next Generation Recycling: Innovative recycling processes that significantly reduce environmental impact and enhance efficiency compared to traditional dry and wet recycling methods, focusing on the recovery of valuable metals and materials from resources like waste batteries and metal scrap. Related technologies include zero-liquid discharge wet processes, low-temperature and low-pressure melting technologies, electrochemical metal recovery methods, and biological leaching techniques, with examples such as using electrochemical recovery techniques for producing lithium compounds and developing devices for lithium recovery from sodium-ion batteries through ion exchange reactions.
+          Level: 2
+          Source: Initial
+          ----------------------------------------
+          ----------------------------------------
+          Label: direct_recycling
+          Dimension: technology_classification
+          Description: Direct recycling: A method of recycling where active materials in electrodes are directly reclaimed from spent batteries and metal scraps, specifically aimed at efficiently processing waste batteries from electric vehicles and energy storage systems (ESS). This process involves restoring and reusing active materials through technologies like re-lithiation, solid-state synthesis, and sequential synthesis, while omitting the metal extraction stage to reduce processing time and costs. Relevant patents include methods for manufacturing cathode active materials for lithium-ion batteries by mixing and crushing lithium compounds with nickel, manganese, and cobalt compounds, and sequentially enhancing the performance of these materials using nano-alumina surface modifications.
+          Level: 2
+          Source: Initial
+          ----------------------------------------
+          ----------------------------------------
+     ----------------------------------------
