@@ -6,7 +6,7 @@ from fastapi.responses import StreamingResponse
 
 from ..models.schemas import ClassifyRequest, ClassifyProgress
 from ..services.classify_service import start_classification, estimate_time
-from ..core.events import get_tracker, sse_generator, get_queue_info
+from ..core.events import get_tracker, sse_generator, get_queue_info, clear_all_run_slots
 from ..core.config import DATASETS_DIR
 
 router = APIRouter(prefix="/api/classify", tags=["Classification"])
@@ -57,6 +57,13 @@ async def cancel_classification(run_id: str):
 async def queue_status():
     """Get current run queue status."""
     return get_queue_info()
+
+
+@router.post("/queue/clear")
+async def clear_queue():
+    """Emergency reset: clear all active run slots if they become stuck."""
+    released = clear_all_run_slots()
+    return {"message": f"Cleared {released} stuck run slots.", "success": True}
 
 
 @router.get("/estimate")

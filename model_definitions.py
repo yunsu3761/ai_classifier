@@ -160,7 +160,7 @@ def truncate_messages_to_token_limit(messages, max_context_tokens=128000, reserv
 	print(f"[INFO] Truncated from ~{total_tokens} to ~{new_total} estimated tokens.")
 	return truncated_messages
 
-def promptGPT(args, prompts, schema=None, max_new_tokens=16384, json_mode=True, temperature=0.1, top_p=0.99):
+def promptGPT(args, prompts, schema=None, max_new_tokens=16384, json_mode=True, temperature=0.1, top_p=0.99, cancel_event=None):
 	# Allow overriding the model via environment variable for flexibility
 	model = os.getenv('OPENAI_MODEL', 'gpt-5-2025-08-07')
 	print(f"[DEBUG] Using LLM model: {model}")
@@ -202,6 +202,10 @@ def promptGPT(args, prompts, schema=None, max_new_tokens=16384, json_mode=True, 
 	def process_prompt(idx, messages):
 		nonlocal client_idx
 		
+		# Abort if cancellation requested
+		if cancel_event and getattr(cancel_event, 'is_set', lambda: False)():
+			return idx, None
+
 		# Truncate messages if they exceed the model's context length
 		messages = truncate_messages_to_token_limit(messages, max_context_tokens=128000, reserved_output_tokens=max_new_tokens)
 		
@@ -212,6 +216,10 @@ def promptGPT(args, prompts, schema=None, max_new_tokens=16384, json_mode=True, 
 			
 		max_retries = 5
 		for attempt in range(max_retries):
+			# Also check mid-retry
+			if cancel_event and getattr(cancel_event, 'is_set', lambda: False)():
+				return idx, None
+
 			try:
 				kwargs = dict(
 					model=model, stream=False, messages=messages,
@@ -229,6 +237,9 @@ def promptGPT(args, prompts, schema=None, max_new_tokens=16384, json_mode=True, 
 					
 					last_err = None
 					for rf_option in response_format_options:
+						if cancel_event and getattr(cancel_event, 'is_set', lambda: False)():
+							return idx, None
+
 						try:
 							req = dict(kwargs)
 							if rf_option is not None:
@@ -254,7 +265,15 @@ def promptGPT(args, prompts, schema=None, max_new_tokens=16384, json_mode=True, 
 			except (openai.InternalServerError, openai.APITimeoutError, openai.RateLimitError, openai.APIConnectionError) as e:
 				wait_time = min(2 ** attempt * 5, 120)  # 5s, 10s, 20s, 40s, 80s
 				print(f"[RETRY {attempt+1}/{max_retries}] {type(e).__name__}: {e}. Waiting {wait_time}s...")
-				time.sleep(wait_time)
+				
+				# Interruptable sleep
+				slept = 0
+				while slept < wait_time:
+					if cancel_event and getattr(cancel_event, 'is_set', lambda: False)():
+						return idx, None
+					time.sleep(1)
+					slept += 1
+					
 				if attempt == max_retries - 1:
 					print(f"[ERROR] Max retries reached. Raising error.")
 					raise
@@ -279,6 +298,11 @@ def promptGPT(args, prompts, schema=None, max_new_tokens=16384, json_mode=True, 
 		for future in tqdm(as_completed(future_to_idx), total=len(prompts), desc="LLM Inference"):
 			idx, result = future.result()
 			outputs[idx] = result
+			
+			if cancel_event and getattr(cancel_event, 'is_set', lambda: False)():
+				print("[INFO] promptGPT cancellation detected, shutting down remaining tasks...")
+				executor.shutdown(wait=False, cancel_futures=True)
+				raise InterruptedError("Cancelled by user")
 			
 	return outputs
 

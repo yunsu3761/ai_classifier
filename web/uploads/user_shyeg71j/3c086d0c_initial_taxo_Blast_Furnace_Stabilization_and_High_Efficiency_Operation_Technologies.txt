@@ -1,0 +1,32 @@
+Label: Cost_effective_low_carbon_steelmaking_technologies
+Dimension: Blast_Furnace_Stabilization_and_High_Efficiency_Operation_Technologies
+Description: Process and system advancement technologies include not only next-generation innovations aimed at structurally reducing the carbon intensity of blast furnace ironmaking but also operational enhancement technologies that maintain furnace permeability, thermal balance, and reduction reaction stability under low coke rate or low-carbon operating conditions. This concept encompasses both structural transition technologies such as oxygen blast furnaces and carbon circulation blast furnaces, as well as operational technologies that support stable furnace operation under changing decarbonization conditions.
+Level: 0
+Source: Initial
+----------------------------------------
+Children:
+     Label: Reduction_Efficiency_Enhancement
+     Dimension: Blast_Furnace_Stabilization_and_High_Efficiency_Operation_Technologies
+     Description: This includes technologies that reduce carbon consumption per ton of hot metal by optimizing reduction gas composition and thermal balance, advancing PCI (Pulverized Coal Injection) systems, and applying iron ore–coal composite agglomerates.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+     Label: Coke_Strength_Maintenance
+     Dimension: Blast_Furnace_Stabilization_and_High_Efficiency_Operation_Technologies
+     Description: This includes technologies that maintain coke strength and permeability under low coke rate conditions, ensuring stable gas flow channels in the cohesive zone.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+     Label: Burden_Distribution_Control
+     Dimension: Blast_Furnace_Stabilization_and_High_Efficiency_Operation_Technologies
+     Description: This includes technologies that ensure furnace permeability and reduction efficiency through precise control of ore-to-coke (O/C) ratio, burden charging pattern optimization, and gas flow homogenization.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+     Label: Blast_Furnace_Advancement
+     Dimension: Blast_Furnace_Stabilization_and_High_Efficiency_Operation_Technologies
+     Description: This includes next-generation blast furnace system technologies such as oxygen blast furnace operation and carbon circulation blast furnace concepts that structurally reduce carbon intensity.
+     Level: 1
+     Source: Initial
+     ----------------------------------------
+----------------------------------------

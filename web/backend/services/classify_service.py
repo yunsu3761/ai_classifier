@@ -150,13 +150,18 @@ def _run_classification(run_id: str, request: ClassifyRequest, user_id: str):
         tracker.add_log(f"Classifying {len(type_prompts)} papers...")
         check_cancel()
 
-        # Run LLM with periodic cancel checks (process in batches of 10)
-        batch_size = 10
+        # Run LLM with periodic cancel checks (process in batches of 500 to allow full parallel saturation)
+        batch_size = 500
         type_outputs = []
         for i in range(0, len(type_prompts), batch_size):
             check_cancel()
             batch = type_prompts[i:i + batch_size]
-            batch_outputs = promptLLM(args, batch, max_new_tokens=3000)
+            batch_outputs = promptLLM(
+                args, 
+                batch, 
+                max_new_tokens=3000, 
+                cancel_event=tracker._cancel_event
+            )
             type_outputs.extend(batch_outputs)
 
             pct = 25.0 + (i + len(batch)) / len(type_prompts) * 40.0

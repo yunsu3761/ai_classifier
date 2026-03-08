@@ -118,6 +118,16 @@ def release_run_slot(run_id: str):
             _run_semaphore.release()
 
 
+def clear_all_run_slots():
+    """Emergency reset for stuck slots."""
+    with _active_runs_lock:
+        to_release = len(_active_runs)
+        _active_runs.clear()
+        for _ in range(to_release):
+            _run_semaphore.release()
+        return to_release
+
+
 def get_active_run_count() -> int:
     with _active_runs_lock:
         return len(_active_runs)
